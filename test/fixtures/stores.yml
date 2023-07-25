@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  name: MyString
+  address: MyString
+  open: MyString
+  close: MyString
+  logo_pic: MyString
+  station: MyString
+  ktai_coupon: false
+  photo_url: MyString
+
+two:
+  id: 1
+  name: MyString
+  address: MyString
+  open: MyString
+  close: MyString
+  logo_pic: MyString
+  station: MyString
+  ktai_coupon: false
+  photo_url: MyString
