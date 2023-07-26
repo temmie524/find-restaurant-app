@@ -4,5 +4,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :stores, only: %i(index)
+  resources :stores, only: %i(index show)
+  get '/store_search', to: 'stores#search', as: :store_search
 end
