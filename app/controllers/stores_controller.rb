@@ -8,8 +8,17 @@ class StoresController < ApplicationController
 
   # GET /stores/1 or /stores/1.json
   def show
+    @store = Store.details(params[:id])
   end
+  #GET /stores/search
+  def search
+    @lat = params[:lat]
+    @lng = params[:lng]
+    @range = params[:range]
 
+    @stores = Store.get_stores(@lat, @lng, @range)
+
+  end
   # GET /stores/new
   def new
     @store = Store.new
