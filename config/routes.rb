@@ -1,9 +1,3 @@
 Rails.application.routes.draw do
-  root 'homes#top'
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations'
-  }
-  get '/store_search', to: 'stores#search', as: :store_search
-  get '/store', to: 'stores#show', as: :store
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
