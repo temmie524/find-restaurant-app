@@ -18,6 +18,7 @@ class StoresController < ApplicationController
 
     stores = Store.get_stores(@lat, @lng, @range)
     @stores = JSON.parse(stores.body)["results"]["shop"]
+    @stores = Kaminari.paginate_array(@stores).page(params[:page]).per(5)
   end
   # GET /stores/new
   def new

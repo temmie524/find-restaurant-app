@@ -5,12 +5,32 @@
     font-size: 20px;
 }
 
-.stores_list{
+.stores-list{
   width: 80%;
   margin: 0 auto;
   max-width: 500px;
 }
 
+
+.store-item,.store-photo, .page{
+  text-align: center;
+}
+
+.store-access{
+  padding-bottom:3em
+}
+
 .store-name{
     font-size: 20px;
 }
+
+.detail{
+  font-size: 20px;
+  line-height: 1.5em;
+}
+
+.detail-name{
+  font-size: 30px;
+  line-height: 1.5em;
+}
+

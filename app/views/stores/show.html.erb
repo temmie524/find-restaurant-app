@@ -2,13 +2,13 @@
   <% @details.each do |detail| %>
     <div class="detail-item">
       <div class="detail-name"><%= detail["name"] %></div>
-      <div class="detail-address"><%= detail["address"] %></div>
-      <div class="detail-access"><%= detail["access"] %></div>
-      <div class="detail-open"><%= detail["open"] %></div>
-      <div class="detail-close"><%= detail["close"] %></div>
-      <div class="detail-budget"><%= detail["budget"]["name"] %></div>
-      <div class="detail-badget-memo"><%= detail["badget-memo"] %></div>
-      <div class="detail-urls"><%= detail["urls"]["pc"] %></div>
+      <div class="detail">住所：<%= detail["address"] %></div>
+      <div class="detail">アクセス：<%= detail["access"] %></div>
+      <div class="detail">営業時間、営業時間<%= detail["open"] %></div>
+      <div class="detail">定休日：<%= detail["close"] %></div>
+      <div class="detail">ディナー予算：<%= detail["budget"]["name"] %></div>
+      <div class="detail">その他：<%= detail["badget-memo"] %></div>
+      <div class="detail">公式HP：<%= detail["urls"]["pc"] %></div>
       <div class="detail-photo">
         <%= image_tag detail["photo"]["pc"]["m"], alt: detail["name"] %>
       </div>
