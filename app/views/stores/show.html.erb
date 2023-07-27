@@ -1,49 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Id:</strong>
-  <%= @store.id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @store.address %>
-</p>
-
-<p>
-  <strong>Open:</strong>
-  <%= @store.open %>
-</p>
-
-<p>
-  <strong>Close:</strong>
-  <%= @store.close %>
-</p>
-
-<p>
-  <strong>Logo pic:</strong>
-  <%= @store.logo_pic %>
-</p>
-
-<p>
-  <strong>Station:</strong>
-  <%= @store.station %>
-</p>
-
-<p>
-  <strong>Ktai coupon:</strong>
-  <%= @store.ktai_coupon %>
-</p>
-
-<p>
-  <strong>Photo url:</strong>
-  <%= @store.photo_url %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
+<% @details.each do |detail| %>
+  <li>
+    <%= detail["name"]%>
+  </li>
+  <li>
+    <%= detail["access"]%>
+  </li>
+    <li>
+  <%= image_tag detail["photo"]["pc"]["m"]%>
+  </li>
+<% end %>

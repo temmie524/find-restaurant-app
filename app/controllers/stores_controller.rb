@@ -1,5 +1,4 @@
 class StoresController < ApplicationController
-  before_action :set_store, only: %i[ show edit update destroy ]
 
   # GET /stores or /stores.json
   def index
@@ -8,7 +7,8 @@ class StoresController < ApplicationController
 
   # GET /stores/1 or /stores/1.json
   def show
-    @store = Store.details(params[:id])
+    details = Store.details(params[:id])
+    @details = JSON.parse(details.body)["results"]["shop"]
   end
   #GET /stores/search
   def search
@@ -16,8 +16,8 @@ class StoresController < ApplicationController
     @lng = params[:lng]
     @range = params[:range]
 
-    @stores = Store.get_stores(@lat, @lng, @range)
-
+    stores = Store.get_stores(@lat, @lng, @range)
+    @stores = JSON.parse(stores.body)["results"]["shop"]
   end
   # GET /stores/new
   def new
@@ -67,11 +67,6 @@ class StoresController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_store
-      @store = Store.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def store_params
       params.require(:store).permit(:id, :name, :address, :open, :close, :logo_pic, :station, :ktai_coupon, :photo_url)
