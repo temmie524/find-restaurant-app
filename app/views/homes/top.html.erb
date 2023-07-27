@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Store Page</title>
+</head>
+<body>
+  <h1>Store Page</h1>
+
+  <div id="location-info">
+    <!-- ここに位置情報が表示されます -->
+  </div>
+
+  <div id="radius-form">
+    <%= form_tag(store_search_path, method: :get) do %>
+      <%= label_tag(:range, "Search Radius (in meters):") %>
+      <%= select_tag(:range, options_for_select([['300m', 1], ['500m', 2], ['1000m', 3], ['2000m', 4], ['5000m', 5]], selected: 3)) %>
+      <!-- Hiddenフォームで緯度と経度を渡す -->
+      <%= hidden_field_tag(:lat, nil, id: "latitude-input") %>
+      <%= hidden_field_tag(:lng, nil, id: "longitude-input") %>
+
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 現在地を取得する関数
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+          alert("Geolocation is not supported by this browser.");
+        }
+      }
+
+      // 現在地の緯度経度を表示する関数
+      function showPosition(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Hiddenフォームの値を設定
+        const latitudeInput = document.getElementById("latitude-input");
+        const longitudeInput = document.getElementById("longitude-input");
+        latitudeInput.value = latitude;
+        longitudeInput.value = longitude;
+
+        const locationInfo = document.getElementById("location-info");
+        locationInfo.innerHTML = `Your current location: Latitude ${latitude}, Longitude ${longitude}`;
+      }
+
+      getLocation();
+    });
+  </script>
+</body>
+</html>

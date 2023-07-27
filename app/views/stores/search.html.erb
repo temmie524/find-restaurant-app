@@ -1,0 +1,13 @@
+<h1>近くのレストランは</h1 >
+<ul class="stores-list">
+  <% @stores.each do |store| %>
+    <div class="store-photo">
+      <%= image_tag store["photo"]["pc"]["m"], alt: store["name"] %>
+    </div>
+    
+    <li class="store-item">
+      <div class="store-name"><%= link_to store["name"], store_path(id: store["id"]) %></div>
+      <div class="store-access"><%= store["access"] %></div>
+    </li>
+  <% end %>
+</ul>
